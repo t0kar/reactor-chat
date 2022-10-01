@@ -1,0 +1,7 @@
+.chat {
+  position: relative;
+  width: 1032px;
+  height: 864px;
+  background-color: var(--background-light);
+  padding: 32px;
+}
