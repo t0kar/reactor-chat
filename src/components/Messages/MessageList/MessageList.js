@@ -34,29 +34,16 @@ export default function MessageList() {
   const showMessages = (messages) => {
     let items = [];
     for (let i = 0; i < records; i++) {
-      if (messages[i].parent_id === undefined) {
-        items.push(
-          <Message
-            key={messages[i].timestamp}
-            id={messages[i].id}
-            authorPicture={messages[i].author.picture}
-            authorName={messages[i].author.name}
-            text={messages[i].text}
-            timestamp={messages[i].timestamp}
-          />
-        );
-      } else {
-        items.push(
-          <Message
-            key={messages[i].timestamp}
-            id={messages[i].id}
-            authorPicture={messages[i].author.picture}
-            authorName={messages[i].author.name}
-            text={messages[i].text}
-            timestamp={messages[i].timestamp}
-          />
-        );
-      }
+      items.push(
+        <Message
+          key={messages[i].timestamp}
+          id={messages[i].id}
+          authorPicture={messages[i].author.picture}
+          authorName={messages[i].author.name}
+          text={messages[i].text}
+          timestamp={messages[i].timestamp}
+        />
+      );
     }
 
     return items;
