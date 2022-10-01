@@ -44,7 +44,7 @@ export default function MessageInput(props) {
         <input /* value={enteredMessage || ''} onChange={messageChangeHandler} */
         />
         <Card className={classes.button_card}>
-          <Button className={classes.button}>
+          <Button className={classes.button} /* disabled={!formIsValid} */>
             <FiSend />
             Send message
           </Button>
