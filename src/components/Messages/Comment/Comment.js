@@ -30,7 +30,7 @@ export default function Comment(props) {
   );
 
   return (
-    <div>
+    <>
       <li className={classes.comment}>
         <img
           src={`./media/${props.authorPicture}`}
@@ -59,6 +59,6 @@ export default function Comment(props) {
         </div>
       </li>
       <div className={classes.comment_container}>{otherComments}</div>
-    </div>
+    </>
   );
 }
