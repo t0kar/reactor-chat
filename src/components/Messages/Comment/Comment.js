@@ -1,19 +1,18 @@
 import React, { useContext } from 'react';
 import dateFormat from 'dateformat';
 
-import classes from './Message.module.css';
+import classes from './Comment.module.css';
 
 import Card from '../../UI/Card/Card';
-import Comment from '../Comment/Comment';
 
 import { ChatContext } from '../../../contexts/ChatContext';
 
-export default function Message(props) {
+export default function Comment(props) {
   const { onMessageReply } = useContext(ChatContext);
 
   let commentCounter = 0;
 
-  const comments = props.dataset.map(
+  const otherComments = props.dataset.map(
     (comment) =>
       comment.parent_id === props.id &&
       ((commentCounter = commentCounter + 1),
@@ -31,23 +30,19 @@ export default function Message(props) {
   );
 
   return (
-    <div className={classes.message_container}>
-      <li className={classes.message_date}>
-        {dateFormat(props.timestamp, 'dddd, dd.mm.yyyy.')}
-      </li>
-
-      <li className={`${classes.message}`}>
+    <div>
+      <li className={classes.comment}>
         <img
           src={`./media/${props.authorPicture}`}
           alt='author'
           className={classes.author_picture}
         />
         <div>
-          <Card className={`${classes.message__container}`}>
+          <Card className={`${classes.comment__container}`}>
             <div className={classes.author_name}>{props.authorName}</div>
             <div className={classes.text}>{props.text}</div>
           </Card>
-          <div className={`${classes.message__footer}`}>
+          <div className={`${classes.comment__footer}`}>
             <div className={classes.timestamp}>
               {dateFormat(props.timestamp, 'h:MM TT')}
             </div>
@@ -63,7 +58,7 @@ export default function Message(props) {
           </div>
         </div>
       </li>
-      <div className={classes.comment_container}>{comments}</div>
+      <div className={classes.comment_container}>{otherComments}</div>
     </div>
   );
 }

@@ -1,14 +1,62 @@
 import React, { useState, createContext } from 'react';
 
+import DUMMY_DATA from '../data/chat.json';
+
 export const ChatContext = createContext({});
 
 export const ChatProvider = (props) => {
-  const [enteredMessage, setEnteredMessage] = useState('');
-  const [formIsValid, setFormIsValid] = useState(false);
+  const [chatData, setChatData] = useState(DUMMY_DATA.data.comments);
+  const [replyData, setReplyData] = useState('');
+
+  const username = 'Lucija Toć';
+  const picture = 'img/ivana.png';
+  let id = chatData.length + 1;
+
+  const onMessageReply = (data) => {
+    setReplyData(data);
+    console.log(data);
+  };
+
+  const onSendMessage = (message) => {
+    replyData.id !== ''
+      ? setChatData((prevData) => [
+          ...prevData,
+          {
+            id: id,
+            parent_id: replyData.id,
+            author: {
+              name: username,
+              picture: picture,
+            },
+            text: message,
+            timestamp: Date.now(),
+          },
+        ])
+      : setChatData((prevData) => [
+          ...prevData,
+          {
+            id: id,
+            author: {
+              name: username,
+              picture: picture,
+            },
+            text: message,
+            timestamp: Date.now(),
+          },
+        ]);
+    setReplyData('');
+    console.log(chatData);
+  };
 
   return (
     <ChatContext.Provider
-      value={{ enteredMessage, setEnteredMessage, formIsValid, setFormIsValid }}
+      value={{
+        chatData,
+        setChatData,
+        onSendMessage,
+        onMessageReply,
+        replyData,
+      }}
     >
       {props.children}
     </ChatContext.Provider>

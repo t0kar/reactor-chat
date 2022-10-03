@@ -1,11 +1,9 @@
 .message_input {
-  position: absolute;
   display: flex;
   flex-flow: row nowrap;
+  margin-top: 8px;
   padding: 8px;
   background-color: white;
-  bottom: 32px;
-  width: calc(100% - 64px - 16px);
   justify-content: space-between;
 }
 

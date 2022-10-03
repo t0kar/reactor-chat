@@ -9,8 +9,6 @@ export const getMessages = async () => {
   return response.data;
 };
 
-//uncomment when sending message will be implemented
-
 /* export const addMessage = async (message) => {
   return await chatApi.post('/chat', message);
 }; */

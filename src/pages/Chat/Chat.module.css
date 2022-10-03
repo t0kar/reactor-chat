@@ -1,5 +1,7 @@
 .chat {
-  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
   width: 1032px;
   height: 864px;
   background-color: var(--background-light);

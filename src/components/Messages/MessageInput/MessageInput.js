@@ -1,4 +1,4 @@
-import React /* useContext  */ from 'react';
+import React, { useState, useContext } from 'react';
 
 import classes from './MessageInput.module.css';
 import { FiSend } from 'react-icons/fi';
@@ -7,13 +7,12 @@ import { AiOutlinePlus } from 'react-icons/ai';
 import Card from '../../UI/Card/Card';
 import Button from '../../UI/Button/Button';
 
-/* import { ChatContext } from '../../../contexts/ChatContext'; */
+import { ChatContext } from '../../../contexts/ChatContext';
 
 export default function MessageInput(props) {
-  // uncomment when sending message will be implemented
-
-  /*   const { formIsValid, setFormIsValid, enteredMessage, setEnteredMessage } =
-    useContext(ChatContext);
+  const [enteredMessage, setEnteredMessage] = useState('');
+  const [formIsValid, setFormIsValid] = useState(false);
+  const { onSendMessage, replyData } = useContext(ChatContext);
 
   const messageChangeHandler = (event) => {
     if (event.target.value.trim().length > 0) {
@@ -27,10 +26,10 @@ export default function MessageInput(props) {
     if (enteredMessage.trim().length === 0) {
       return;
     }
-    props.onSendMessage(enteredMessage);
+    onSendMessage(enteredMessage);
     setFormIsValid(false);
     setEnteredMessage('');
-  }; */
+  };
 
   return (
     <Card className={classes.message_input}>
@@ -39,12 +38,24 @@ export default function MessageInput(props) {
       </Card>
       <form
         className={classes.message_input__form}
-        /* onSubmit={sendMessageHandler} */
+        onSubmit={sendMessageHandler}
       >
-        <input /* value={enteredMessage || ''} onChange={messageChangeHandler} */
+        <input
+          value={enteredMessage || ''}
+          onChange={messageChangeHandler}
+          placeholder={`
+            ${
+              replyData.user !== undefined
+                ? 'You are replying to ' + replyData.user
+                : ''
+            }`}
         />
         <Card className={classes.button_card}>
-          <Button className={classes.button} /* disabled={!formIsValid} */>
+          <Button
+            className={classes.button}
+            type='submit'
+            disabled={!formIsValid}
+          >
             <FiSend />
             Send message
           </Button>

@@ -1,19 +1,16 @@
-.message_container {
+.comment {
+  position: relative;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   padding: 0rem;
-  max-width: 95%;
-}
-
-.comment_container {
-  display: flex;
-  flex-flow: column nowrap;
-  max-width: 95%;
+  padding-top: 24px;
+  max-width: 100%;
+  margin-left: 60px;
 }
 
 .comment_container li:first-child:before {
   content: '';
-  background: url('../Comment/comment.png');
+  background: url('comment.png');
   position: absolute;
   top: 0px;
   left: -36px;
@@ -21,25 +18,12 @@
   width: 24px;
 }
 
-.message {
-  display: flex;
-  flex-flow: row nowrap;
-  padding: 0rem;
-  padding-top: 24px;
-  max-width: 100%;
-}
-
-.message_comment {
+.comment_container {
   margin-left: 60px;
 }
 
-.message_date {
-  margin-top: 16px;
-  margin-bottom: 16px;
-  text-align: center;
-  list-style-type: none;
-  font-size: var(--font-size-date);
-  color: var(--text-light);
+.comment_container .comment_container {
+  margin-left: 60px;
 }
 
 .author_picture {
@@ -48,7 +32,7 @@
   margin-right: 12px;
 }
 
-.message__container {
+.comment__container {
   display: flex;
   flex-flow: column nowrap;
   padding: 24px;
@@ -67,7 +51,7 @@
   color: var(--text-light);
 }
 
-.message__footer {
+.comment__footer {
   margin-top: 12px;
   display: flex;
   flex-flow: row nowrap;
