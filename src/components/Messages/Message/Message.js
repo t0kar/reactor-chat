@@ -4,7 +4,6 @@ import dateFormat from 'dateformat';
 import classes from './Message.module.css';
 
 import Card from '../../UI/Card/Card';
-import Comment from '../Comment/Comment';
 
 import { ChatContext } from '../../../contexts/ChatContext';
 
@@ -18,7 +17,8 @@ export default function Message(props) {
       comment.parent_id === props.id &&
       ((commentCounter = commentCounter + 1),
       (
-        <Comment
+        <Message
+          isComment={true}
           key={comment.timestamp}
           id={comment.id}
           authorPicture={comment.author.picture}
@@ -30,22 +30,24 @@ export default function Message(props) {
       ))
   );
 
-  return (
-    <div className={classes.message_container}>
-      <li className={`${classes.message}`}>
+  const messages = (
+    <>
+      <li className={`${!props.isComment ? classes.message : classes.comment}`}>
         <img
           src={`./media/${props.authorPicture}`}
           alt='author'
           className={classes.author_picture}
         />
         <div>
-          <Card className={`${classes.message__container}`}>
+          <Card className={`${classes.message__data}`}>
             <div className={classes.author_name}>{props.authorName}</div>
             <div className={classes.text}>{props.text}</div>
           </Card>
           <div className={`${classes.message__footer}`}>
             <div className={classes.timestamp}>
-              {dateFormat(props.timestamp, 'h:MM TT')}
+              {!props.isComment
+                ? dateFormat(props.timestamp, 'h:MM TT')
+                : dateFormat(props.timestamp, 'h:MM TT, dd.mm.yyyy.')}
             </div>
             <span>·</span>
             <div
@@ -60,6 +62,12 @@ export default function Message(props) {
         </div>
       </li>
       <div className={classes.comment_container}>{comments}</div>
-    </div>
+    </>
+  );
+
+  return !props.isComment ? (
+    <div className={classes.message_container}>{messages}</div>
+  ) : (
+    <>{messages}</>
   );
 }

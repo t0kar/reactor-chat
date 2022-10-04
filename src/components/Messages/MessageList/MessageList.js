@@ -121,6 +121,7 @@ export default function MessageList() {
             <div key={message.timestamp / 0.5}>
               {dates.has(dateNum) ? null : renderDate(message, dateNum)}
               <Message
+                isComment={false}
                 key={message.timestamp}
                 id={message.id}
                 authorPicture={message.author.picture}
