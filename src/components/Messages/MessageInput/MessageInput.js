@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 
 import classes from './MessageInput.module.css';
+
+// importing icons
 import { FiSend } from 'react-icons/fi';
 import { AiOutlinePlus } from 'react-icons/ai';
 

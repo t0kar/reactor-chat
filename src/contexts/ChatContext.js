@@ -8,13 +8,14 @@ export const ChatProvider = (props) => {
   const [chatData, setChatData] = useState(DUMMY_DATA.data.comments);
   const [replyData, setReplyData] = useState('');
 
+  // Sender dummy data
   const username = 'Lucija Toć';
   const picture = 'img/ivana.png';
   let id = chatData.length + 1;
 
   const onMessageReply = (data) => {
     setReplyData(data);
-    console.log(data);
+    console.log('You are replying to the message.');
   };
 
   const onSendMessage = (message) => {
@@ -45,7 +46,7 @@ export const ChatProvider = (props) => {
           },
         ]);
     setReplyData('');
-    console.log(chatData);
+    console.log('Message sent!');
   };
 
   return (

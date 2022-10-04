@@ -4,3 +4,12 @@
   margin: 0px;
   overflow-y: auto;
 }
+
+.date {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+  list-style-type: none;
+  font-size: var(--font-size-date);
+  color: var(--text-light);
+}

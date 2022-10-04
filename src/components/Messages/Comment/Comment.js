@@ -44,7 +44,7 @@ export default function Comment(props) {
           </Card>
           <div className={`${classes.comment__footer}`}>
             <div className={classes.timestamp}>
-              {dateFormat(props.timestamp, 'h:MM TT')}
+              {dateFormat(props.timestamp, 'h:MM TT, dd.mm.yyyy.')}
             </div>
             <span>·</span>
             <div

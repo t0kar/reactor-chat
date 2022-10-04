@@ -32,10 +32,6 @@ export default function Message(props) {
 
   return (
     <div className={classes.message_container}>
-      <li className={classes.message_date}>
-        {dateFormat(props.timestamp, 'dddd, dd.mm.yyyy.')}
-      </li>
-
       <li className={`${classes.message}`}>
         <img
           src={`./media/${props.authorPicture}`}

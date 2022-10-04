@@ -29,6 +29,10 @@
   max-width: 100%;
 }
 
+.message_comment {
+  margin-left: 60px;
+}
+
 .message_date {
   margin-top: 16px;
   margin-bottom: 16px;
