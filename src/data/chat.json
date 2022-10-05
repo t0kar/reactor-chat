@@ -88,6 +88,36 @@
         },
         "text": "Commenting a comment by Davor Majkovsi",
         "timestamp": 1627268090279
+      },
+      {
+        "id": "10",
+        "parent_id": "3",
+        "author": {
+          "name": "Tereza Juhić",
+          "picture": "img/ines.png"
+        },
+        "text": "Test test",
+        "timestamp": 1627348090279
+      },
+      {
+        "id": "11",
+        "parent_id": "10",
+        "author": {
+          "name": "Tereza Juhić",
+          "picture": "img/ines.png"
+        },
+        "text": "Test test",
+        "timestamp": 1627248090279
+      },
+      {
+        "id": "12",
+        "parent_id": "3",
+        "author": {
+          "name": "Tereza Juhić",
+          "picture": "img/ines.png"
+        },
+        "text": "Test test test",
+        "timestamp": 1627344090279
       }
     ]
   }

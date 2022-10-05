@@ -6,8 +6,7 @@
 }
 
 .date {
-  margin-top: 16px;
-  margin-bottom: 16px;
+  margin-top: 32px;
   text-align: center;
   list-style-type: none;
   font-size: var(--font-size-date);

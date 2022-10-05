@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext /* useRef */ } from 'react';
 import dateFormat from 'dateformat';
 
 // uncomment to fetch data from mock server
@@ -21,7 +21,7 @@ export default function MessageList() {
 
   // scroll automatically to last
 
-  const messagesEndRef = useRef(null);
+  /*   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -29,7 +29,7 @@ export default function MessageList() {
 
   useEffect(() => {
     scrollToBottom();
-  }, [chatData]);
+  }, [chatData]); */
 
   // uncomment to fetch data from mock server
 
@@ -134,7 +134,7 @@ export default function MessageList() {
           )
         );
       })}
-      <li ref={messagesEndRef} />
+      {/* <li ref={messagesEndRef} /> */}
     </ul>
   );
 }
